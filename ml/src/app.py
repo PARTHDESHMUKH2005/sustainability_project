@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_from_directory  
 from flask_cors import CORS
 import joblib
 import pandas as pd
@@ -10,18 +10,17 @@ CORS(app)
 # Load model and feature columns
 model = joblib.load("efficiency_model.pkl")
 feature_columns = joblib.load("feature_columns.pkl")
-#home page
+
+
 @app.route("/", methods=["GET"])
-def home():
-    return "<h1>Solar Panel Efficiency Prediction API</h1><p>Use the /predict endpoint to get predictions.</p>"
+def serve_html():
+    return send_from_directory('static', 'main.html')
 
 
-# Health Check
 @app.route("/health", methods=["GET"])
 def health():
     return jsonify({"status": "ML service running"})
 
-# Prediction Endpoint
 # Prediction Endpoint
 @app.route("/predict", methods=["GET", "POST"])
 def predict():
@@ -78,6 +77,7 @@ def predict():
             "error": "Prediction failed",
             "message": str(e)
         }), 500
+
 # Run server
 if __name__ == "__main__":
     app.run(debug=True, port=5001)
