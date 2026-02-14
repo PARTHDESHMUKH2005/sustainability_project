@@ -195,10 +195,6 @@ pip install -r requirements.txt
 # Set up environment variables
 cp .env.example .env
 # Edit .env with your configuration
-
-# Initialize database
-python scripts/init_db.py
-
 # Run the application
 python app.py
 ```
