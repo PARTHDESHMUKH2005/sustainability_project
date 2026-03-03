@@ -1,4 +1,4 @@
-# ⚡ RENEWAI
+# ⚡ SOLARSENSE AI (Greenmind AI)
 
 <div align="center">
 
