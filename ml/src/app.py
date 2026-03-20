@@ -262,4 +262,4 @@ if __name__ == "__main__":
     print(f"\nServer starting on http://localhost:5001")
     print("="*80 + "\n")
     
-app.run(debug=False, port=int(os.environ.get('PORT', 5001)), host='0.0.0.0')
+app.run(debug=False, port=int(os.environ.get('PORT', 10000)), host='0.0.0.0')
